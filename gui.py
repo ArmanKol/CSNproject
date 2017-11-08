@@ -41,7 +41,7 @@ def verander_led_rood():
     global gele_led
 
     if gele_led["background"] == "yellow" or groene_led["background"] == "green2" or rode_led["background"] == "red4":
-        rode_led["background"] ="red"
+        rode_led["background"] ="red4"
         groene_led["background"] ="green4"
         gele_led["background"] ="yellow4"
 
