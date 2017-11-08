@@ -1,5 +1,14 @@
 import tkinter
 
+def alarmstop():
+    global rode_led
+    global groene_led
+    global gele_led
+
+    if gele_led["background"] == "yellow" or groene_led["background"] == "green2" or rode_led["background"] == "red4":
+        rode_led["background"] = "red"
+        groene_led["background"] = "green4"
+        gele_led["background"] = "yellow4"
 
 def verander_led_geel():
     global gele_led
@@ -8,7 +17,7 @@ def verander_led_geel():
     global callback
 
     if gele_led["background"] == "yellow4":
-        callback = root.after(2000, verander_led_rood)
+        callback = root.after(2000, alarmstop)
         gele_led["background"] = "yellow"
         rode_led["background"] = "red4"
         groene_led["background"] = "green4"
@@ -42,7 +51,7 @@ def verander_led_rood():
     global groene_led
     global gele_led
 
-    if gele_led["background"] == "yellow" or groene_led["background"] == "green2" or rode_led["background"] == "red4":
+    if gele_led["background"] == "yellow" or groene_led["background"] == "green2" or rode_led["background"] == "red4" or rode_led["background"] == "red":
         rode_led["background"] = "red4"
         groene_led["background"] = "green4"
         gele_led["background"] = "yellow4"
