@@ -1,5 +1,6 @@
 import tkinter
 
+
 def verander_led_geel():
     global gele_led
     global rode_led
@@ -24,15 +25,16 @@ def stop():
         rode_led["background"] = "red4"
         gele_led["background"] = "yellow4"
 
+
 def verander_led_groen():
     global groene_led
     global rode_led
     global gele_led
 
     if groene_led["background"] == "green2" or rode_led["background"] == "red" or groene_led["background"] == "green4":
-        groene_led["background"] ="green2"
-        rode_led["background"] ="red4"
-        gele_led["background"] ="yellow4"
+        groene_led["background"] = "green2"
+        rode_led["background"] = "red4"
+        gele_led["background"] = "yellow4"
 
 
 def verander_led_rood():
@@ -41,9 +43,9 @@ def verander_led_rood():
     global gele_led
 
     if gele_led["background"] == "yellow" or groene_led["background"] == "green2" or rode_led["background"] == "red4":
-        rode_led["background"] ="red4"
-        groene_led["background"] ="green4"
-        gele_led["background"] ="yellow4"
+        rode_led["background"] = "red4"
+        groene_led["background"] = "green4"
+        gele_led["background"] = "yellow4"
 
 
 def toonhoofdmenu():
