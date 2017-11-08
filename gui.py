@@ -1,43 +1,49 @@
 import tkinter
 
-def verander_led_groen():
-    global groene_led
-    global rode_led
-    global gele_led
-    global counter
-
-    if counter == 0:
-        groene_led["background"] ="green2"
-        rode_led["background"] ="red4"
-        gele_led["background"] ="yellow4"
-        counter += 1
-
-
 def verander_led_geel():
     global gele_led
     global rode_led
     global groene_led
-    global counter
+    global callback
 
-    gele_led["background"] = "yellow"
-    rode_led["background"] = "red4"
-    groene_led["background"] = "green4"
+    if gele_led["background"] == "yellow4":
+        callback = root.after(2000, verander_led_rood)
+        gele_led["background"] = "yellow"
+        rode_led["background"] = "red4"
+        groene_led["background"] = "green4"
 
-    counter +=1
-    root.after(2000, verander_led_rood)
+
+def stop():
+    global groene_led
+    global rode_led
+    global gele_led
+
+    if gele_led["background"] == "yellow":
+        root.after_cancel(callback)
+        groene_led["background"] = "green2"
+        rode_led["background"] = "red4"
+        gele_led["background"] = "yellow4"
+
+def verander_led_groen():
+    global groene_led
+    global rode_led
+    global gele_led
+
+    if groene_led["background"] == "green2" or rode_led["background"] == "red":
+        groene_led["background"] ="green2"
+        rode_led["background"] ="red4"
+        gele_led["background"] ="yellow4"
 
 
 def verander_led_rood():
     global rode_led
     global groene_led
     global gele_led
-    global counter
 
-    if counter == 1:
+    if gele_led["background"] == "yellow" or groene_led["background"] == "green2":
         rode_led["background"] ="red"
         groene_led["background"] ="green4"
         gele_led["background"] ="yellow4"
-        counter -= 1
 
 
 def toonhoofdmenu():
@@ -48,7 +54,6 @@ root = tkinter.Tk()
 root.title("Alarm systeem")
 root.configure(background="white")
 
-counter =0
 
 hoofdmenuframe = tkinter.Frame(root)
 hoofdmenuframe.configure(background="white")
@@ -63,7 +68,7 @@ aanknop.grid(row=1, column=0)
 uitknop = tkinter.Button(master=hoofdmenuframe, text="UIT", command=verander_led_rood)
 uitknop.grid(row=1, column=1, padx=10)
 
-stopknop = tkinter.Button(master=hoofdmenuframe, text="STOP")
+stopknop = tkinter.Button(master=hoofdmenuframe, text="STOP", command=stop)
 stopknop.grid(row=1, column=2, padx=10)
 
 alarmknop = tkinter.Button(master=hoofdmenuframe, text="ALARM TESTEN", command=verander_led_geel)
