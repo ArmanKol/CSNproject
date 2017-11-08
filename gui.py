@@ -29,7 +29,7 @@ def verander_led_groen():
     global rode_led
     global gele_led
 
-    if groene_led["background"] == "green2" or rode_led["background"] == "red":
+    if groene_led["background"] == "green2" or rode_led["background"] == "red" or groene_led["background"] == "green4":
         groene_led["background"] ="green2"
         rode_led["background"] ="red4"
         gele_led["background"] ="yellow4"
@@ -40,7 +40,7 @@ def verander_led_rood():
     global groene_led
     global gele_led
 
-    if gele_led["background"] == "yellow" or groene_led["background"] == "green2":
+    if gele_led["background"] == "yellow" or groene_led["background"] == "green2" or rode_led["background"] == "red4":
         rode_led["background"] ="red"
         groene_led["background"] ="green4"
         gele_led["background"] ="yellow4"
